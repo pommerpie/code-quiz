@@ -1,6 +1,167 @@
+:root {
+    --blue1: #81abee;
+    --blue2: #3b65a9;
+    --blue3: #b2c9ee;
+}
+
 * {
     margin: 0;
     padding: 0;
     font-family:Arial, Helvetica, sans-serif;
     box-sizing: border-box;
+}
+
+body {
+    background: var(--blue1);
+}
+
+.quizbox{
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.quizbox header{
+    height: 70px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quizbox h1{
+    font-size: 25px;
+    color: #3b65a9;
+    font-weight: 600;
+    border-bottom: 1px solid var(--blue2);
+    padding-bottom: 15px;
+}
+
+/* Timer */
+.quizbox header .timer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 145px;
+    height: 50px;
+    background: var(--blue3);
+    color: var(--blue2);
+    border: 1px solid var(--blue2);
+    border-radius: 5px;
+    padding: 0 8px;
+}
+.quizbox header .timer .time-text{
+    font-weight: 400;
+    font-size: 18px;
+    user-select: none;
+}
+.quizbox header .timer .timer-sec{
+    font-size: 18px;
+    font-weight: 500;
+    background: var(--blue2);
+    height: 30px;
+    width: 45px;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 1px solid var(--blue1);
+    user-select: none;
+}
+/* Timer End */
+
+.quiz{
+    padding: 20px 0;
+}
+
+.quiz h2{
+    font-size: 18px;
+    color: var(--blue2);
+}
+
+#start-btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+#start-btn button{
+    font-size: 25px;
+    font-weight: 500;
+    background: var(--blue2);
+    color: #fff;
+    padding: 15px 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#start-btn button:hover{
+    background: #fff;
+    color: var(--blue2);
+    border: 1px solid var(--blue2);
+}
+
+.btn{
+    background: #fff;
+    color: var(--blue2);
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid var(--blue2);
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* Hover effect will only work when button is clickable. */
+.btn:hover:not([disabled]){ 
+    background: var(--blue2);
+    color: #fff;
+}
+
+/* Makes cursor not click on disabled buttons. */
+.btn:disabled{ 
+    cursor: no-drop;
+}
+
+#next-btn{
+    background: var(--blue2);
+    color: #fff;
+    font-weight: 500;
+    width: 150px;
+    border: 1px solid #fff;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: none;
+}
+
+#next-btn:hover{
+    background: #fff;
+    color: var(--blue2);
+    border: 1px solid var(--blue2);
+}
+
+.correct{
+    background: rgb(149, 208, 149);
+}
+
+.incorrect{
+    background: rgb(239, 156, 156);
+}
+
+#hide {
+    display: 
 }
