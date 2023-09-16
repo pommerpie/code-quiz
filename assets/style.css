@@ -15,7 +15,8 @@ body {
     background: var(--blue1);
 }
 
-.quizbox{
+/* Quizbox Start */
+#quizbox{
     background: #fff;
     width: 90%;
     max-width: 600px;
@@ -23,25 +24,24 @@ body {
     border-radius: 10px;
     padding: 30px;
 }
-
-.quizbox header{
+#quizbox header{
     height: 70px;
     padding: 0 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-
-.quizbox h1{
+#quizbox h1{
     font-size: 25px;
     color: #3b65a9;
     font-weight: 600;
     border-bottom: 1px solid var(--blue2);
     padding-bottom: 15px;
 }
+/* Quizbox End */
 
 /* Timer */
-.quizbox header .timer{
+#quizbox header .timer{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -53,12 +53,12 @@ body {
     border-radius: 5px;
     padding: 0 8px;
 }
-.quizbox header .timer .time-text{
+#quizbox header .timer .time-text{
     font-weight: 400;
     font-size: 18px;
     user-select: none;
 }
-.quizbox header .timer .timer-sec{
+#quizbox header .timer .timer-sec{
     font-size: 18px;
     font-weight: 500;
     background: var(--blue2);
@@ -73,24 +73,22 @@ body {
 }
 /* Timer End */
 
+/* Quiz Start */
 .quiz{
     padding: 20px 0;
 }
-
 .quiz h2{
     font-size: 18px;
     color: var(--blue2);
 }
+/* Quiz End */
 
+/* Start Button */
 #start-btn{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: none;
-}
-
-#start-btn button{
     font-size: 25px;
     font-weight: 500;
     background: var(--blue2);
@@ -102,13 +100,14 @@ body {
     cursor: pointer;
     transition: 0.5s;
 }
-
-#start-btn button:hover{
+#start-btn:hover{
     background: #fff;
     color: var(--blue2);
     border: 1px solid var(--blue2);
 }
+/* Start Button End */
 
+/* Button */
 .btn{
     background: #fff;
     color: var(--blue2);
@@ -122,18 +121,18 @@ body {
     cursor: pointer;
     transition: all 0.3s;
 }
-
 /* Hover effect will only work when button is clickable. */
 .btn:hover:not([disabled]){ 
     background: var(--blue2);
     color: #fff;
 }
-
 /* Makes cursor not click on disabled buttons. */
 .btn:disabled{ 
     cursor: no-drop;
 }
+/* Button End */
 
+/* Next Button */
 #next-btn{
     background: var(--blue2);
     color: #fff;
@@ -147,12 +146,12 @@ body {
     transition: 0.3s;
     display: none;
 }
-
 #next-btn:hover{
     background: #fff;
     color: var(--blue2);
     border: 1px solid var(--blue2);
 }
+/* Next Button End */
 
 .correct{
     background: rgb(149, 208, 149);
@@ -162,6 +161,6 @@ body {
     background: rgb(239, 156, 156);
 }
 
-#hide {
-    display: 
+.hide {
+    display: none;
 }

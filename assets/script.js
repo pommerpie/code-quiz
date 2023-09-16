@@ -96,7 +96,7 @@ const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
-const quizBox = document.getElementsByClassName("quizBox");
+const quizBox = document.getElementById("quizbox");
 const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
@@ -109,19 +109,19 @@ startButton.addEventListener('click', startGame)
 
 // When quiz is started, it will reset the question number and score, and show the Next button.
 
+// START BUTTON FUNCTIONALITY HERE
+startButton.onclick = ()=>{
+    quizBox.classList.add("quizbox");
+    startButton.classList.add('hide');
+    quizBox.classList.remove('hide')
+}
+// START BUTTON FUNCTION END
+
 function startGame() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
-    console.log('Started!');
-}
-
-function showQuizBox() {
-    var quizBox = getElementsByClassName("quizbox");
-    if (quizBox.style.display === "none") {
-        quizBox.style.display = "block;"
-    }
 }
 
 // Will show question number (index number + 1), as well as display the question.
@@ -198,6 +198,8 @@ nextButton.addEventListener("click", ()=>{
         startGame();
     }
 });
+
+
 
 // Calls startGame function 
 startGame();
