@@ -19,7 +19,7 @@ body {
 #quizbox{
     background: #fff;
     width: 90%;
-    max-width: 600px;
+    max-width: 700px;
     margin: 100px auto 0;
     border-radius: 10px;
     padding: 30px;
@@ -106,6 +106,19 @@ body {
     border: 1px solid var(--blue2);
 }
 /* Start Button End */
+
+/* Score Board Start */
+#highscore {
+    color: #fff;
+    padding: 20px;
+    font-size: 25px;
+}
+
+ul{
+    color: #fff;
+    padding: 20px;
+    font-size: 20px;
+}
 
 /* Button */
 .btn{

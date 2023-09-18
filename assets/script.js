@@ -98,14 +98,20 @@ const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
 const quizBox = document.getElementById("quizbox");
 const time_line = document.querySelector("header .time_line");
-const timeText = document.querySelector(".timer .time_left_txt");
+const timeText = document.querySelector(".timer .time_text");
 const timeCount = document.querySelector(".timer .timer_sec");
 
 let currentQuestionIndex = 0;
 let score = 0;
-let timeValue = 60;
+let timeInterval;
+let timeValue = 2;
+let scoreBoard = []
+
+
+
 
 startButton.addEventListener('click', startGame)
+
 
 // When quiz is started, it will reset the question number and score, and show the Next button.
 
@@ -114,7 +120,9 @@ startButton.onclick = ()=>{
     quizBox.classList.add("quizbox");
     startButton.classList.add('hide');
     quizBox.classList.remove('hide')
-}
+
+    startTimer(timeValue); // Calls startTimer function
+};
 // START BUTTON FUNCTION END
 
 function startGame() {
@@ -152,6 +160,7 @@ function resetState(){
         answerButtons.removeChild(answerButtons.firstChild);
     }
 }
+
 // Checks if selected answer is true or false.
 function selectAnswer(e){
     const selectedBtn = e.target;
@@ -179,6 +188,12 @@ function showScore(){
     ${questions.length}!`;
     nextButton.innerHTML = "Play Again";
     nextButton.style.display = "block";
+    startTimer(timeValue); 
+    startTimerLine(widthValue); 
+    timeText.textContent = "Time Left";
+    if(currentQuestionIndex < 0){
+        resetState();
+    }
 }
 
 function handleNextButton(){
@@ -199,6 +214,23 @@ nextButton.addEventListener("click", ()=>{
     }
 });
 
+
+// Timer Start
+function startTimer(time){
+    counter = setInterval(timer, 1000);
+    function timer(){
+        timeCount.textContent = time; 
+        time--; // Makes time go down
+        if(time < 0){ //if timer is less than 0
+            clearInterval(counter); //clear counter
+            showScore();
+        }
+            
+
+        }
+    }
+
+// Timer End
 
 
 // Calls startGame function 
