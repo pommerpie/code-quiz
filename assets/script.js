@@ -100,15 +100,13 @@ const quizBox = document.getElementById("quizbox");
 const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_text");
 const timeCount = document.querySelector(".timer .timer_sec");
+const scoreBoard = document.querySelector("scoreboard")
 
 let currentQuestionIndex = 0;
 let score = 0;
 let timeInterval;
-let timeValue = 2;
-let scoreBoard = []
-
-
-
+let timeValue = 60;
+let scorePush = [];
 
 startButton.addEventListener('click', startGame)
 
@@ -123,7 +121,6 @@ startButton.onclick = ()=>{
 
     startTimer(timeValue); // Calls startTimer function
 };
-// START BUTTON FUNCTION END
 
 function startGame() {
     currentQuestionIndex = 0;
@@ -131,6 +128,7 @@ function startGame() {
     nextButton.innerHTML = "Next";
     showQuestion();
 }
+// START BUTTON FUNCTION END
 
 // Will show question number (index number + 1), as well as display the question.
 function showQuestion(){
@@ -186,17 +184,25 @@ function showScore(){
     resetState();
     questionElement.innerHTML = `You scored ${score} out of 
     ${questions.length}!`;
-    nextButton.innerHTML = "Play Again";
-    nextButton.style.display = "block";
-    startTimer(timeValue); 
-    startTimerLine(widthValue); 
-    timeText.textContent = "Time Left";
+    nextButton.style.display = "hide";
     if(currentQuestionIndex < 0){
         resetState();
     }
+    scoreStore();
 }
 
-function handleNextButton(){
+function scoreStore(){
+    const highscores = { // Logs score
+        Name: prompt(score + "/" + questions.length + ", Nice work! Log your score with your initials."),
+        Score: score
+    }
+    scorePush.push(highscores)
+    localStorage.setItem("Scoreboard", JSON.stringify(scorePush)) // Saves score in Local Storage
+    console.log("You recieved a " + score + "/" + questions.length);
+}
+
+
+function handleNextButton(){ // Makes sure quiz ends after question 10
     currentQuestionIndex++
     if(currentQuestionIndex < questions.length){
         showQuestion();
@@ -229,10 +235,8 @@ function startTimer(time){
 
         }
     }
-
 // Timer End
 
 
 // Calls startGame function 
 startGame();
-
